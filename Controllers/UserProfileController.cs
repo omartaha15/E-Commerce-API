@@ -20,10 +20,13 @@ namespace E_Commerce_API.Controllers
             _userService = userService;
         }
 
-       
-
 
         [HttpGet( "profile" )]
+        [ResponseCache(Duration = 30)]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status404NotFound )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<IActionResult> GetProfile ()
         {
             try
@@ -46,6 +49,10 @@ namespace E_Commerce_API.Controllers
 
 
         [HttpPut( "profile" )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status404NotFound )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<IActionResult> UpdateProfile ( [FromBody] UpdateUserProfileDto profileDto )
         {
             try

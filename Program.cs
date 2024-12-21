@@ -62,11 +62,12 @@ builder.Services.AddSwaggerGen( c =>
 } );
 
 
-builder.Services.AddAuthentication( options => {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme; 
+builder.Services.AddAuthentication( options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-    } )
+} )
     .AddJwtBearer( options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
@@ -78,6 +79,8 @@ builder.Services.AddAuthentication( options => {
             IssuerSigningKey = new SymmetricSecurityKey( Encoding.UTF8.GetBytes( builder.Configuration [ "JwtSettings:Key" ] ) )
         };
     } );
+
+builder.Services.AddResponseCaching();
 
 // Register for Services (DI)
 builder.Services.AddScoped<IAdminService, AdminService>();

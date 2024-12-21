@@ -18,6 +18,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpGet("GetAll")]
+        [ResponseCache( Duration = 30 )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
         public async Task<ActionResult> GetAll()
         {
             try
@@ -32,6 +35,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpGet("{id}")]
+        [ResponseCache( Duration = 30 )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
         public async Task<ActionResult> GetCategory(int id )
         {
             try

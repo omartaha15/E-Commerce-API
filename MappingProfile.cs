@@ -14,51 +14,44 @@ namespace E_Commerce_API
     {
         public MappingProfile ()
         {
+            // User Mappings
             CreateMap<UserRegisterDto, User>().ReverseMap();
             CreateMap<User, UserProfileDto>().ReverseMap();
             CreateMap<UpdateProfileDto, User>().ReverseMap();
             CreateMap<UpdateUserProfileDto, User>().ReverseMap();
-            CreateMap<UserProfileDto, UpdateUserProfileDto>().ReverseMap();
+            CreateMap<User, UserDto>().ReverseMap();
 
+            // Product Mappings
             CreateMap<ProductCreateDto, Product>().ReverseMap();
             CreateMap<ProductUpdateDto, Product>().ReverseMap();
             CreateMap<Product, ProductDetailsDto>().ReverseMap();
             CreateMap<Product, ProductDto>().ReverseMap();
 
-
+            // Category Mappings
             CreateMap<Category, CategoryDTO>().ReverseMap();
             CreateMap<CreateCategoryDTO, Category>().ReverseMap();
-            CreateMap<CreateCategoryDTO, CategoryDTO>().ReverseMap();
             CreateMap<UpdateCategoryDTO, Category>().ReverseMap();
-            CreateMap<UpdateCategoryDTO, CategoryDTO>().ReverseMap();
+            CreateMap<CreateCategoryDTO, CategoryDTO>().ReverseMap();
 
 
+
+            // Order Mappings
             CreateMap<Order, OrderDetailsDto>()
-           .ForMember( dest => dest.OrderItems, opt => opt.MapFrom( src => src.OrderItems ) );
-
+                .ForMember( dest => dest.OrderItems, opt => opt.MapFrom( src => src.OrderItems ) );
             CreateMap<OrderItem, OrderItemDetailsDto>()
                 .ForMember( dest => dest.ProductName, opt => opt.MapFrom( src => src.Product.Name ) );
-
             CreateMap<OrderCreateDto, Order>();
             CreateMap<OrderItemCreateDto, OrderItem>();
             CreateMap<Order, OrderDto>().ReverseMap();
             CreateMap<OrderItem, OrderItemDto>().ReverseMap();
             CreateMap<Order, AdminOrderListDto>();
 
-
+            // Cart Mappings
             CreateMap<AddCartItemDto, CartItem>().ReverseMap();
 
+            // Review Mappings
             CreateMap<Review, ReviewDto>().ReverseMap();
             CreateMap<CreateReviewDto, Review>();
-
-            CreateMap<User, UserDto>();
-            CreateMap<Product, ProductDto>();
-            CreateMap<Order, OrderDto>();
-            CreateMap<OrderItem, OrderItemDto>();
-
-
-          
-
         }
     }
 }

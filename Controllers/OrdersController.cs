@@ -23,6 +23,8 @@ namespace E_Commerce_API.Controllers
 
         [HttpGet( "admin" )]
         [Authorize( Roles = "Admin" )]
+        [ResponseCache( Duration = 5 )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
         public async Task<IActionResult> GetAllOrders ()
         {
             var orders = await _orderService.GetAllOrdersAsync();
@@ -30,6 +32,10 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpGet]
+        [ResponseCache( Duration = 5 )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<IActionResult> GetUserOrders ()
         {
             var userId = User.FindFirstValue( ClaimTypes.NameIdentifier );
@@ -42,6 +48,10 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpGet( "{id}" )]
+        [ResponseCache( Duration = 10 )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status404NotFound )]
         public async Task<IActionResult> GetOrderById ( int id )
         {
             var order = await _orderService.GetOrderByIdAsync( id );
@@ -50,6 +60,8 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType( StatusCodes.Status201Created )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
         public async Task<IActionResult> CreateOrder ( [FromBody] OrderCreateDto orderDto )
         {
             try
@@ -65,6 +77,8 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpPut("{id}")]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
         public async Task<ActionResult> UpdateOrder(int id , [FromBody] OrderUpdateDto orderDto )
         {
             try
@@ -79,6 +93,8 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
         public async Task<ActionResult> CancleOrder(int id )
         {
             try
@@ -94,6 +110,8 @@ namespace E_Commerce_API.Controllers
 
         [HttpPut( "{id}/status" )]
         [Authorize( Roles = "Admin" )]
+        [ProducesResponseType( StatusCodes.Status204NoContent )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
         public async Task<IActionResult> UpdateOrderStatus ( int id, [FromBody] OrderStatusUpdateDto statusDto )
         {
             await _orderService.UpdateOrderStatusAsync( id, statusDto.OrderStatus );

@@ -19,6 +19,9 @@ namespace E_Commerce_API.Controllers
 
         [HttpGet]
         [Authorize]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<ActionResult> GetUserWishlist ()
         {
             try
@@ -40,6 +43,10 @@ namespace E_Commerce_API.Controllers
 
         [HttpPost( "add/{productId}" )]
         [Authorize]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status400BadRequest )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<ActionResult> AddProductToWishList ( int productId )
         {
             try
@@ -67,6 +74,10 @@ namespace E_Commerce_API.Controllers
 
         [HttpDelete("remove/{productId}")]
         [Authorize]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status404NotFound )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<ActionResult> RemoveProductFromWishList(int productId )
         {
             try

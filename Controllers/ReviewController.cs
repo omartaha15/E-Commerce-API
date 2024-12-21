@@ -21,6 +21,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpGet]
+        [ResponseCache(Duration = 10)]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
         public async Task<ActionResult> GetProductReviews(int productId )
         {
             try
@@ -36,6 +39,10 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
+        [ProducesResponseType( StatusCodes.Status400BadRequest )]
         public async Task<ActionResult> AddReview(int productId, [FromBody]CreateReviewDto reviewDto)
         {
             try
@@ -62,6 +69,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpPut("{reviewId}")]
+        [ProducesResponseType( StatusCodes.Status204NoContent )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<ActionResult> UpdateReview(int reviewId, [FromBody] CreateReviewDto reviewDto)
         {
             try
@@ -81,6 +91,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpDelete( "{reviewId}" )]
+        [ProducesResponseType( StatusCodes.Status204NoContent )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<IActionResult> DeleteReview ( int reviewId )
         {
             try

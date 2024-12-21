@@ -19,6 +19,10 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpGet]
+        [ResponseCache(Duration = 20)]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<IActionResult> GetCart ()
         {
             try
@@ -37,6 +41,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpPost( "add" )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<IActionResult> AddToCart ( [FromBody] AddCartItemDto cartItemDto )
         {
             try
@@ -55,6 +62,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpPut( "update" )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<IActionResult> UpdateCartItem ( [FromBody] UpdateCartItemDto cartItemDto )
         {
             try
@@ -73,6 +83,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpDelete( "remove/{productId}" )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<IActionResult> RemoveCartItem ( int productId )
         {
             try
@@ -91,6 +104,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpPost( "clear" )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
+        [ProducesResponseType( StatusCodes.Status401Unauthorized )]
         public async Task<IActionResult> ClearCart ()
         {
             try

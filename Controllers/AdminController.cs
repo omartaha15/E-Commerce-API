@@ -18,6 +18,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpGet( "dashboard/sales-summary" )]
+        [ResponseCache(Duration = 5)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetSalesSummary ()
         {
             try
@@ -32,6 +35,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpGet( "users" )]
+        [ResponseCache( Duration = 30 )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
         public async Task<IActionResult> GetAllUsers ()
         {
             try
@@ -46,6 +52,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpGet( "products/low-stock" )]
+        [ResponseCache( Duration = 5 )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
         public async Task<IActionResult> GetLowStockProducts ()
         {
             try
@@ -60,6 +69,9 @@ namespace E_Commerce_API.Controllers
         }
 
         [HttpGet( "orders/recent" )]
+        [ResponseCache( Duration = 5 )]
+        [ProducesResponseType( StatusCodes.Status200OK )]
+        [ProducesResponseType( StatusCodes.Status500InternalServerError )]
         public async Task<IActionResult> GetRecentOrders ()
         {
             try
