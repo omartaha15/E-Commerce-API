@@ -1,7 +1,7 @@
 ﻿# E-Commerce API
 
 ## Overview
-The **E-Commerce API** is a backend solution for managing an e-commerce platform. It provides features for user management, product management, category management, shopping cart operations, order processing, and reviews. Built with ASP.NET Core, the API leverages Entity Framework Core for database operations and AutoMapper for object-to-object mapping.
+The **E-Commerce API** is a powerful and scalable backend solution designed to manage an e-commerce platform. Developed with **ASP.NET Core**, the API provides a range of essential features for e-commerce functionality, ensuring a seamless experience for both administrators and customers. It integrates several modern technologies to deliver performance, security, and maintainability.
 
 ---
 
@@ -12,6 +12,7 @@ The **E-Commerce API** is a backend solution for managing an e-commerce platform
 - **Shopping Cart**: Add, update, and manage items in the cart.
 - **Orders**: Place orders and retrieve order details.
 - **Reviews**: Add and manage reviews for products.
+- **LINQ Queries**: Leverage **LINQ** for efficient querying of data, ensuring optimized and readable code for retrieving and manipulating data.
 - **Role-based Authorization**: Separate functionalities for Admin and regular users.
 - **JWT Authentication**: Secure API endpoints.
 - **Caching**: Improve performance with data caching for frequently accessed resources.
