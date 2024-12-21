@@ -164,8 +164,8 @@ E_Commerce_API
 
 ## Feel free to contact me
 
-[![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/0/01/LinkedIn_Logo_2023.png)](https://www.linkedin.com/in/omar157/)
-[![X](https://upload.wikimedia.org/wikipedia/commons/6/60/X_Logo_2023.svg)](https://x.com/omar_taha17)
+[![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/X_logo.jpg/768px-X_logo.jpg)](https://www.linkedin.com/in/omar157/)
+[![X](https://static.vecteezy.com/system/resources/previews/023/986/970/non_2x/linkedin-logo-linkedin-logo-transparent-linkedin-icon-transparent-free-free-png.png)](https://x.com/omar_taha17)
 
 ---
 
